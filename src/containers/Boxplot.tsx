@@ -37,7 +37,9 @@ export const Boxplot = ({ width, height, data }: BoxplotProps) => {
     .scaleBand()
     .range([0, boundsWidth])
     .domain(groups)
-    .padding(0.25);
+    .paddingInner(1)
+    .paddingOuter(.5)
+    .padding(.25);
 
   // Build the box shapes
   const allShapes = groups.map((group, i) => {
@@ -60,7 +62,7 @@ export const Boxplot = ({ width, height, data }: BoxplotProps) => {
           min={yScale(min)}
           max={yScale(max)}
           stroke="black"
-          fill={"#ead4f5"}
+          fill={"#69b3a2"}
         />
       </g>
     );

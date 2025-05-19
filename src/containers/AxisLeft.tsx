@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import type { ScaleLinear } from "d3";
+import "./style.css";
 
 type AxisLeftProps = {
   yScale: ScaleLinear<number, number>;
@@ -26,7 +27,7 @@ export const AxisLeft = ({ yScale, pixelsPerTick }: AxisLeftProps) => {
     <>
       {/* Main vertical line */}
       <path
-        d={["M", 0, range[0], "L", 0, range[1]].join(" ")}
+        d={["M", 0, range[0], "L", 0, range[1] - 40].join(" ")}
         fill="none"
         stroke="currentColor"
       />
@@ -37,11 +38,7 @@ export const AxisLeft = ({ yScale, pixelsPerTick }: AxisLeftProps) => {
           <line x2={-TICK_LENGTH} stroke="currentColor" />
           <text
             key={value}
-            style={{
-              fontSize: "10px",
-              textAnchor: "middle",
-              transform: "translateX(-20px)",
-            }}
+            className="axis-left-label"
           >
             {value}
           </text>

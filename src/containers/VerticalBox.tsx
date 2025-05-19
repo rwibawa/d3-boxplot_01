@@ -1,4 +1,4 @@
-const STROKE_WIDTH = 40;
+const STROKE_WIDTH = 1;
 
 // A reusable component that builds a vertical box shape using svg
 // Note: numbers here are px, not the real values in the dataset.
@@ -26,6 +26,8 @@ export const VerticalBox = ({
 }: VerticalBoxProps) => {
   return (
     <>
+
+      {/* Vertical Line */}
       <line
         x1={width / 2}
         x2={width / 2}
@@ -34,6 +36,8 @@ export const VerticalBox = ({
         stroke={stroke}
         strokeWidth={STROKE_WIDTH}
       />
+
+      {/* The Box */}
       <rect
         x={0}
         y={q3}
@@ -42,11 +46,34 @@ export const VerticalBox = ({
         stroke={stroke}
         fill={fill}
       />
+
+      {/* Median Line */}
       <line
         x1={0}
         x2={width}
         y1={median}
         y2={median}
+        stroke={stroke}
+        color={"blue"}
+        strokeWidth={STROKE_WIDTH * 2}
+      />
+
+      {/* Bottom Line */}
+      <line
+        x1={0}
+        x2={width}
+        y1={min}
+        y2={min}
+        stroke={stroke}
+        strokeWidth={STROKE_WIDTH}
+      />
+
+      {/* Top Line */}
+      <line
+        x1={0}
+        x2={width}
+        y1={max}
+        y2={max}
         stroke={stroke}
         strokeWidth={STROKE_WIDTH}
       />

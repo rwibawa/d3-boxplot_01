@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import type { ScaleBand } from "d3";
+import "./style.css";
 
 type AxisBottomProps = {
   xScale: ScaleBand<string>;
@@ -22,7 +23,7 @@ export const AxisBottom = ({ xScale }: AxisBottomProps) => {
     <>
       {/* Main horizontal line */}
       <path
-        d={["M", min + 20, 0, "L", max - 20, 0].join(" ")}
+        d={["M", min, 0, "L", max, 0].join(" ")}
         fill="none"
         stroke="currentColor"
       />
@@ -33,11 +34,7 @@ export const AxisBottom = ({ xScale }: AxisBottomProps) => {
           <line y2={TICK_LENGTH} stroke="currentColor" />
           <text
             key={value}
-            style={{
-              fontSize: "10px",
-              textAnchor: "middle",
-              transform: "translateY(20px)",
-            }}
+            className="axis-bottom-label"
           >
             {value}
           </text>

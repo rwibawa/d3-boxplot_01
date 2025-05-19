@@ -1,0 +1,11 @@
+.axis-bottom-label {
+  font-size: 10px;
+  text-anchor: middle;
+  transform: translateY(20px);
+}
+
+.axis-left-label {
+  font-size: 10px;
+  text-anchor: middle;
+  transform: translateX(-20px);
+}
